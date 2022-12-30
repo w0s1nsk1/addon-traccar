@@ -20,7 +20,7 @@ RUN apk add --no-cache \
         xmlstarlet=1.6.1-r0 \
         wget && \
  wget /tmp/traccar.zip https://github.com/traccar/traccar/releases/download/v5.5/traccar-other-5.5.zip && \
- mkdir -p /opt/traccar \
+ mkdir -p /opt/traccar && \
     && unzip -d /opt/traccar /tmp/traccar.zip \
     && rm -fr /tmp/*
 
