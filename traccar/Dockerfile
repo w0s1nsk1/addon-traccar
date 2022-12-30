@@ -12,20 +12,15 @@ COPY rootfs /
 WORKDIR /opt/traccar
 
 # Setup base
-RUN \
-    apk add --no-cache \
-        mariadb-client=10.6.9-r0 \
-        nginx=1.22.0-r1 \
+RUN apk add --no-cache \
+        mariadb-client=10.6.10-r0 \
+        nginx=1.22.1-r0 \
         nss=3.78.1-r0 \
-        openjdk11-jre-headless=11.0.16.1_p1-r0 \
-        xmlstarlet=1.6.1-r0 \
-    \
-    && curl -J -L -o /tmp/traccar.zip \
-      "https://github.com/traccar/traccar/releases/download/v5.5/traccar-other-5.5.zip" \
-    \
-    && mkdir -p /opt/traccar \
+        openjdk11-jre-headless=11.0.17_p8-r1 \
+        xmlstarlet=1.6.1-r0 
+ADD https://github.com/traccar/traccar/releases/download/v5.5/traccar-other-5.5.zip /tmp/traccar.zip
+RUN mkdir -p /opt/traccar \
     && unzip -d /opt/traccar /tmp/traccar.zip \
-    \
     && rm -fr /tmp/*
 
 # Build arguments
