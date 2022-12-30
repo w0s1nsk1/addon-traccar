@@ -8,7 +8,7 @@ declare -a options
 bashio::log.info "Starting Traccar server..."
 
 # Memory settings
-options+=(-Xms512g)
+options+=(-Xms512m)
 options+=(-Xmx1g)
 
 # Prefer IPv4, because of Hassio general issues with IPv6
